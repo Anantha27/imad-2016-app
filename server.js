@@ -7,7 +7,7 @@ app.use(morgan('combined'));
 var config = {
   user: 'anantha27', //env var: PGUSER
   database: 'anantha27', //env var: PGDATABASE
-  password: process.emv.DB_PASSWORD, //env var: PGPASSWORD
+  password: process.env.DB_PASSWORD, //env var: PGPASSWORD
   host: 'localhost', // Server hosting the postgres database
   port: 5432, //env var: PGPORT
   max: 10, // max number of clients in the pool
