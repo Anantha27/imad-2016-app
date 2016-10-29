@@ -13,6 +13,16 @@ var config = {
   max: 10, // max number of clients in the pool
   idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
 };
+function createTemplate(data){
+    var RepNo=data.Rno;
+    var Sub=data.Subject;
+    var date=data.Date;
+    var body=data.Body;
+    var auName=data.Auname;
+var htmlTemplate='<html><title></title><div>$[sub]</div><div>$[body]</div></html> ';
+
+  return htmlTemplate;  
+}
 var pool = new pg.Pool(config);
 app.get('/test-db',function(req,res){
     
@@ -34,9 +44,27 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',function(req,res)
+app.get('/articles/articleName',function(req,res)
 {
-res.sendFile(path.join(__dirname, 'ui', 'article1.html'));
+    
+   pool.query('SELECT * FROM report WHERE Subject='+req.params.articleName,function(err,result){
+         if(err)
+      {
+      res.status(500).send(err.toString());
+        }
+        else
+        {
+            if(result.rows.length === 0){
+                 res.status(500).send('Article not found');
+            }
+            else
+            {
+                var articleData=result.rows[0];
+                res.send(createTemplate(articleData));
+            }
+        }
+    });
+
 });
 app.get('/article-two',function(req,res)
 {
