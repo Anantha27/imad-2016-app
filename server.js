@@ -1,10 +1,35 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var pg = require('pg');var pg = require('pg');
+var pg = require('pg');
 var app = express();
 app.use(morgan('combined'));
+var config = {
+  user: 'anantha27', //env var: PGUSER
+  database: 'anantha27', //env var: PGDATABASE
+  password: process.env.DB_PASSWORD, //env var: PGPASSWORD
+  host: 'localhost', // Server hosting the postgres database
+  port: 5432, //env var: PGPORT
+  max: 10, // max number of clients in the pool
+  idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
+};
+var pool = new pg.Pool(config);
+app.get('/test-db',function(req,res){
+    
 
+
+  pool.query('SELECT * FROM report', function(err, result) {
+      if(err)
+      {
+      res.status(500).send(err.toString());
+        }
+        else
+        {
+            res.send(JSON.stringify(result))
+        }
+});
+
+});
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
