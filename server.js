@@ -66,7 +66,7 @@ app.get('/articles',function(req,res)
             }
             else
             {
-                var articleData=result.rows[0];
+                var articleData=res.rows[0];
                 res.send(createTemplate(articleData));
             }
         }
