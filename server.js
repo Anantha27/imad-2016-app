@@ -19,7 +19,14 @@ function createTemplate(data){
     var date=data.Date;
     var body=data.Body;
     var auName=data.Auname;
-var htmlTemplate='<html><title></title><div>$[sub]</div><div>$[body]</div></html> ';
+var htmlTemplate='
+<html>
+    <head>
+    <title>Report</title>
+    </head>
+    <div>$[Sub]</div>
+    <div>$[body]</div>
+    </html>';
 
   return htmlTemplate;  
 }
