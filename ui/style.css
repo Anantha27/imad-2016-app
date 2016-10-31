@@ -19,8 +19,9 @@ body {
 .img-medium {
     height: 200px;
 }
-.btn
+.center button
 {
-    
+      text-align: center;
+      margin-top:20px;
 }
 
