@@ -3,6 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 var pg = require('pg');
 var app = express();
+var url=require('url');
 app.use(morgan('combined'));
 var config = {
   user: 'anantha27', //env var: PGUSER
@@ -29,11 +30,12 @@ var htmlTemplate=
 
   return htmlTemplate;  
 }
+
 var pool = new pg.Pool(config);
 app.get('/articles/:articleName',function(req,res)
 {
-    
-   pool.query("SELECT * FROM report WHERE Rname='"+req.params.articleName+"'",function(err,result){
+     urlParts =url.parse(req.url,true);
+   pool.query("SELECT * FROM report WHERE Rname='"+urlParts.query.articleName+"'",function(err,result){
          if(err)
       {
       res.status(500).send(err.toString());
