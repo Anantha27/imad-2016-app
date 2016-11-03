@@ -2,7 +2,7 @@ body {
     font-family: sans-serif;
     background-color: white;
     margin-top: 10px;
-    background-image : url("contact.gif");
+    background-image : url("ui/contact.gif");
 }
 
 .center {
