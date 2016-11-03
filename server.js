@@ -3,6 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 var pg = require('pg');
 var app = express();
+var Pool =require('pg').Pool;
 app.use(morgan('combined'));
 var config = {
   user: 'anantha27', //env var: PGUSER
