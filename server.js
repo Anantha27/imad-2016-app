@@ -40,7 +40,7 @@ var pool = new pg.Pool(config);
 app.get('/articles/:articleName',function(req,res)
 {
     
-   pool.query("SELECT * FROM report WHERE Rname ='"+req.params.articleName+"'",function(err,result){
+   pool.query("SELECT * FROM "report" WHERE Rname ='"+req.params.articleName+"'",function(err,result){
          if(err)
       {
       res.status(500).send(err.toString());
@@ -58,31 +58,36 @@ app.get('/articles/:articleName',function(req,res)
         }
     });
 });
-    
+// To test the hashing concept....    
 app.get('/hash/:input',function(req,res){
     var hashedString=hash(req.params.input,'salt');
     res.send(hashedString);
 });
-app.get('/test-db',function(req,res){
-    
 
-
-  pool.query('SELECT * FROM report', function(err, result) {
-      if(err)
-      {
-      res.status(500).send(err.toString());
+// To display the contents in db as JSON objects....
+app.get('/test-db',function(req,res)
+{
+    pool.query('SELECT * FROM "report"', function(err, result)
+    {
+             if(err)
+      {  res.status(500).send(err.toString());
         }
         else
-        {
-            res.send(JSON.stringify(result.rows))
+        {   res.send(JSON.stringify(result.rows));
         }
-});
+    });
 
 });
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-
+// create new user
+app.post('/create-user',function(req,res)
+{ var salt=crypto.getrandomBytes(128).toString('hex');
+var dbstring = hash(password,salt);
+pool.query('INSERT INTO')
+    
+})
 app.get('/article-two',function(req,res)
 {
     res.send("Article two will be served here");
