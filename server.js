@@ -4,8 +4,10 @@ var path = require('path');
 var crypto=require('crypto');
 var pg = require('pg');
 var app = express();
+var bodyParser=require('body-parser');
 var Pool =require('pg').Pool;
 app.use(morgan('combined'));
+app.use(bodyParser.json());
 var config = {
   user: 'anantha27', //env var: PGUSER
   database: 'anantha27', //env var: PGDATABASE
