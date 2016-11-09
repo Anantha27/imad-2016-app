@@ -40,7 +40,7 @@ var pool = new pg.Pool(config);
 app.get('/articles/:articleName',function(req,res)
 {
     
-   pool.query("SELECT * FROM "report" WHERE Rname ='"+req.params.articleName+"'",function(err,result){
+   pool.query("SELECT * FROM report WHERE Rname ='"+req.params.articleName+"'",function(err,result){
          if(err)
       {
       res.status(500).send(err.toString());
@@ -67,7 +67,7 @@ app.get('/hash/:input',function(req,res){
 // To display the contents in db as JSON objects....
 app.get('/test-db',function(req,res)
 {
-    pool.query('SELECT * FROM "report"', function(err, result)
+    pool.query('SELECT * FROM report', function(err, result)
     {
              if(err)
       {  res.status(500).send(err.toString());
