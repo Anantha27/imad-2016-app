@@ -96,12 +96,7 @@ pool.query('INSERT INTO "user"(username,password) VALUES($1,$2)',[username,dbstr
     { res.send('User successfully created:'+username);
     }
     
-});
-    
-});
-app.get('/article-two',function(req,res)
-{
-    res.send("Article two will be served here");
+    });
 });
 app.get('/article-three',function(req,res)
 {
