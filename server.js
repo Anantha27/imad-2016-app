@@ -83,11 +83,22 @@ app.get('/', function (req, res) {
 });
 // create new user
 app.post('/create-user',function(req,res)
-{ var salt=crypto.getrandomBytes(128).toString('hex');
+{ 
+    var username=req.body.username;
+    var password=req.body.password;
+var salt=crypto.getrandomBytes(128).toString('hex');
 var dbstring = hash(password,salt);
-pool.query('INSERT INTO')
+pool.query('INSERT INTO "user"(username,password) VALUES($1,$2)',[username,dbstring],function(err,result)
+{   if(err)
+    {res.status(500).send(err.toString());
+    }
+    else
+    { res.send('User successfully created:'+username);
+    }
     
-})
+});
+    
+});
 app.get('/article-two',function(req,res)
 {
     res.send("Article two will be served here");
