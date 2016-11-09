@@ -98,6 +98,7 @@ pool.query('INSERT INTO "user"(username,password) VALUES($1,$2)',[username,dbstr
     
     });
 });
+
 app.get('/article-three',function(req,res)
 {
     res.send("Article three will be served here");
