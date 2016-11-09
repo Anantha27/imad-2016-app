@@ -1,6 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
+var crypto=require('crypto');
 var pg = require('pg');
 var app = express();
 var Pool =require('pg').Pool;
@@ -53,7 +54,10 @@ app.get('/articles/:articleName',function(req,res)
     });
 });
     
-
+app.get('/hash/:input',function(req,res){
+    var hashedString=hash(req.params.input,'salt');
+    res.send(hashedString);
+});
 app.get('/test-db',function(req,res){
     
 
