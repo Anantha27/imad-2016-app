@@ -15,6 +15,11 @@ var config = {
   max: 10, // max number of clients in the pool
   idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
 };
+function hash(input,salt)
+{
+    var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
+    return hashed.toString('hex');
+}
 function createTemplate(data){
     var RepNo=data.Rno;
     var Sub=data.Rname;
