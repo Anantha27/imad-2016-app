@@ -20,8 +20,13 @@ var config = {
 function hash(input,salt)
 {
     var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
-    return hashed.toString('hex');
+    return ["pbkdf2",hashed.toString('hex')].join('$');
 }
+// To test the hashing concept....    
+app.get('/hash/:input',function(req,res){
+    var hashedString=hash(req.params.input,'salt');
+    res.send(hashedString);
+});
 function createTemplate(data){
     var RepNo=data.Rno;
     var Sub=data.Rname;
@@ -60,11 +65,7 @@ app.get('/articles/:articleName',function(req,res)
         }
     });
 });
-// To test the hashing concept....    
-app.get('/hash/:input',function(req,res){
-    var hashedString=hash(req.params.input,'salt');
-    res.send(hashedString);
-});
+
 
 // To display the contents in db as JSON objects....
 app.get('/test-db',function(req,res)
