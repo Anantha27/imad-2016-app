@@ -2,7 +2,6 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var crypto=require('crypto');
-var pg = require('pg');
 var app = express();
 var bodyParser=require('body-parser');
 var Pool =require('pg').Pool;
@@ -14,8 +13,6 @@ var config = {
   password: process.env.DB_PASSWORD, //env var: PGPASSWORD
   host: 'db.imad.hasura-app.io', // Server hosting the postgres database
   port: 5432, //env var: PGPORT
-  max: 10, // max number of clients in the pool
-  idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
 };
 function hash(input,salt)
 {
