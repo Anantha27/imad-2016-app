@@ -100,6 +100,34 @@ pool.query('INSERT INTO "user"(username,password) VALUES($1,$2)',[username,dbstr
     
     });
 });
+app.get('/login',function(req,res){
+    var username=req.body.username;
+    var password=req.body.password;
+    pool.query('SELECT * FROM "user" WHERE username=$1"',[username,dbstring],function(err,result)
+{   if(err)
+    {res.status(500).send(err.toString());
+    }
+    else if(result.rows.length===0)
+    { // user does not exists
+        res.send(403).send('Username is invalid:'+username);
+    }
+    else
+    {// match the passord
+        var dbstring=result.rows[0].password;
+        var salt= dbstring.split('$')[2];
+        var hashpassword=hash(password,salt);
+        if(hashpassword===dbstring)
+        {
+            res.send('credentials correct');
+        }
+        else
+        {
+            res.send(403).send('Password is invalid');
+        }
+        
+    }
+});
+});
 
 app.get('/article-three',function(req,res)
 {
