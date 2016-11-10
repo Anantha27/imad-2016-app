@@ -115,10 +115,10 @@ app.post('/login',function(req,res){
         }
         else
         {// match the passord
-        var dbstring=result.rows[0].password;
-        var salt= dbstring.split('$')[2];
-        var hashpassword=hash(password,salt);
-        if(hashpassword===dbstring)
+        var dbString=result.rows[0].password;
+        var salt= dbString.split('$')[2];
+        var hashPassword=hash(password, salt);
+        if(hashPassword===dbstring)
         {
             res.send('credentials correct');
         }
@@ -126,7 +126,7 @@ app.post('/login',function(req,res){
         {
             res.send(403).send('Password is invalid');
         }
-        }
+    }
         
     }
 });
