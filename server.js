@@ -20,7 +20,7 @@ var config = {
 function hash(input,salt)
 {
     var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
-    return ["pbkdf2", "10000", salt,hashed.toString('hex')].join('$');
+    return hashed.toString('hex');
 }
 function createTemplate(data){
     var RepNo=data.Rno;
