@@ -107,12 +107,14 @@ app.post('/login',function(req,res){
 {   if(err)
     {res.status(500).send(err.toString());
     }
-    else if(result.rows.length===0)
-    { // user does not exists
-        res.send(403).send('Username is invalid:'+username);
-    }
+   
     else
-    {// match the passord
+    {    if(result.rows.length===0)
+        { // user does not exists
+            res.send(403).send('Username is invalid:'+username);
+        }
+        else
+        {// match the passord
         var dbstring=result.rows[0].password;
         var salt= dbstring.split('$')[2];
         var hashpassword=hash(password,salt);
@@ -123,6 +125,7 @@ app.post('/login',function(req,res){
         else
         {
             res.send(403).send('Password is invalid');
+        }
         }
         
     }
