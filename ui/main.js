@@ -4,7 +4,7 @@ var submit=document.getElementById('submit_btn');
 submit.onclick=function()
 {
     var request=new XMLHttpRequest();
-    request.onreadystate = function()
+    request.onreadystatechange = function()
     {if(requet.readyState===XMLHttpRequest.DONE)
         {
             if(request.status===200)
