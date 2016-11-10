@@ -2,11 +2,13 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var crypto=require('crypto');
+var session=require('express-session')
 var app = express();
 var bodyParser=require('body-parser');
 var Pool =require('pg').Pool;
 app.use(morgan('combined'));
 app.use(bodyParser.json());
+
 var config = {
   user: 'anantha27', //env var: PGUSER
   database: 'anantha27', //env var: PGDATABASE
@@ -14,6 +16,10 @@ var config = {
   host: 'db.imad.hasura-app.io', // Server hosting the postgres database
   port: 5432, //env var: PGPORT
 };
+app.use(session({
+    secret:"Randomsecretvalue",
+    cookie:{ maxAge:1000*60*60*24*30}
+}));
 function hash(input,salt)
 {
     var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
@@ -118,6 +124,7 @@ app.post('/login',function(req,res){
         var hashedPassword=hash(password, salt);
         if(hashedPassword===dbString)
         {
+            req.session.auth={userId:result.rows[0].id};
             res.send('credentials correct');
         }
         else
