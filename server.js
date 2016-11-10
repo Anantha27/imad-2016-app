@@ -112,7 +112,7 @@ app.post('/login',function(req,res){
     else
     {    if(result.rows.length===0)
         { // user does not exists
-            res.send(403).send('Username is invalid:'+username);
+            res.send(403).send('Username is invalid:');
         }
         else
         {// match the passord
