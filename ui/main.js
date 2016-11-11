@@ -1,6 +1,4 @@
-$( document ).ready(function() {
-    alert( "document ready function using jquery" );
-});
+
 console.log('Loaded!');
 var submit=document.getElementById('submit_btn');
 // on click of submit button
