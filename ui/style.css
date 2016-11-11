@@ -3,6 +3,110 @@ body {
     margin-top: 10px;
     background-color:lightgrey;
 }
+#a {
+	max-height: 80px;
+	background-color:#6699ff;
+	text-align: center;
+	border-bottom: 5px solid blue;
+}
+
+#large {
+	text-align: center;
+}
+
+#large img {
+	max-height:800px;
+}
+
+#back {
+	text-align: center;
+	font-size: 20px;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+#a p {
+	 padding-top: 10px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	margin:0px;
+	color: black;
+	font-weight: bold;
+	font-size: 50px; 
+}
+
+#photo {
+
+	max-width: 50%;
+	float: left;
+}
+
+#photo img {
+	padding-top:8%;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#content {
+	float: right;
+	text-align: center;
+	width: 50%;
+	border-lef: 5px solid blue;	
+}
+
+#content p {
+	font-weight: bold;
+	font-size: 1.5em;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+#pcontent p img {
+    max-width:5%;
+    
+}
+
+#pcontent {
+	float: right;
+	text-align: center;
+	width: 50%;
+	border-left: 5px solid blue;	
+}
+
+#pcontent p {
+	font-weight: bold;
+	font-size: 20px; 
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+#blog {
+    color:orange;
+}
+
+#profile {
+    color:red;
+}
+#top {
+	margin-top: 10%;
+}
+
+#bottom {
+	width: 100%;
+	display: block;
+	bottom: 0;
+	float: left;
+	position: fixed;
+	background-color: grey;
+}
+
+#bottom p {
+	font-size: 10px;
+	text-align: center;
+	padding: 0;
+	
+}
+
 
 .center {
     text-align: center;
