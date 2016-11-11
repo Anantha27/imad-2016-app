@@ -195,7 +195,7 @@ app.get('/ui/gmail.png', function (req, res) {
 app.get('/ui/github.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'github.png'));
 });
-app.get('/ui/twitter.png', function (req, res) {
+app.get('/ui/twitter.jpg', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'twitter.jpg'));
 });
 
