@@ -28,7 +28,7 @@ function hash(input,salt)
 }
 // To test the hashing concept....    
 app.get('/hash/:input',function(req,res){
-    var hashedString=hash(req.params.input,'salt');
+    var hashedString=hash(req.params.input,"salt");
     res.send(hashedString);
 });
 function createTemplate(data){
