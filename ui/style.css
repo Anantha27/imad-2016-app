@@ -24,6 +24,20 @@ body {
       text-align: center;
       margin-top:20px;
 }
+#rightbody
+{
+    height:300px;
+    width: 300px;
+    float: right;
+    margin: 0;
+    
+}
+#leftbody
+{	height:560px;
+    width: 770px;
+    float: left;
+    margin: 0;
+}
 .btn{
     background-color:blue;
     height:50px; 
