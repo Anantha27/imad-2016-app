@@ -160,7 +160,7 @@ app.get('/article-three',function(req,res)
 {
     res.send("Article three will be served here");
 });
-app.get('./madi.png', function (req, res) {
+app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
