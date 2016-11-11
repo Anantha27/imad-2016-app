@@ -23,8 +23,8 @@ app.use(session({
 function hash(input,salt)
 {
     var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
-    console.log(hashed)
-    return ["pbkdf2",salt,hashed.toString('hex')].join('$');
+ var hashedarray=["pbkdf2","10000",salt,hashed.toString('hex')];
+    return hashedarray.join('$');
 }
 // To test the hashing concept....    
 app.get('/hash/:input',function(req,res){
