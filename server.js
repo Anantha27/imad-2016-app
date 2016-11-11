@@ -25,7 +25,7 @@ function hash(input,salt)
 {
     var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
  var hashedarray=["pbkdf2","10000",salt,hashed.toString('hex')];
-  var passwordString=hashedarray.join('/');
+  var passwordString=hashedarray.join('$');
     return passwordString;
 }
 // To test the hashing concept....    
