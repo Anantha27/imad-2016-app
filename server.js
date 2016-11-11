@@ -86,8 +86,8 @@ app.get('/test-db',function(req,res)
     });
 
 });
-app.get('/html', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'db.js'));
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 // create new user
 app.post('/create-user',function(req,res)
