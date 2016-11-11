@@ -1,9 +1,9 @@
 var express = require('express');
-var fs=require('fs')
+var fs=require('fs');
 var morgan = require('morgan');
 var path = require('path');
 var crypto=require('crypto');
-var session=require('express-session')
+var session=require('express-session');
 var app = express();
 var bodyParser=require('body-parser');
 var pg=require('pg');
