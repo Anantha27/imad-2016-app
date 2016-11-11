@@ -198,6 +198,9 @@ app.get('/ui/github.png', function (req, res) {
 app.get('/ui/twitter.jpg', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'twitter.jpg'));
 });
+app.get('/ui/prof.jpg', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'prof.jpg'));
+});
 
 app.get('/ui/linkedin.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'linkedin.png'));
