@@ -163,9 +163,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/ui/ak.gif', function (req, res) {
-   var img = fs.readFileSync('/ui/ak.gif');
-     res.writeHead(200, {'Content-Type': 'image/gif' });
-     res.end(img, 'binary');
+    res.sendFile(path.join(__dirname, 'ui', 'ak.gif'))
 });
 
 app.get('/ui/style.css', function (req, res) {
