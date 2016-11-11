@@ -1,5 +1,4 @@
 body {
-    font-family: sans-serif;
     margin-top: 10px;
     background-color:white;
 }
@@ -30,7 +29,6 @@ a {
 
 #a p {
 	 padding-top: 10px;
-	font-family: "Comic Sans MS", cursive, sans-serif;
 	margin:0px;
 	color: black;
 	font-weight: bold;
