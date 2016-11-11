@@ -3,7 +3,7 @@ var bodyParser = require('body-parser')
 var app = express();
 var json=require('JSON');
 var pg=require('pg')
-var connString="pg://postgres:postgres@localhost:5432/user"
+var connString="pg://anantha27:process.env.DB_PASSWORD@db.imad.hasura-app.io:5432/anantha27"
 //connString=connString.trim();
 console.log("connection sting::"+connString)
 app.use(express.static(__dirname + '/public'));
@@ -18,7 +18,7 @@ app.listen(8081);
 
 
 app.get('/', function (req, res) {
-   res.render('loginPage.ejs');
+   res.render('loginpage.ejs');
 })
 
 app.post('/login', function (req, res) {
