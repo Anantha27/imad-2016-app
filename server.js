@@ -162,6 +162,11 @@ app.get('/article-three',function(req,res)
 app.get('/ui/db.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'db.js'));
 });
+app.get('/ui/ak.gif', function (req, res) {
+    var img = fs.readFileSync('/ui/logo.gif');
+     res.writeHead(200, {'Content-Type': 'image/gif' });
+     res.end(img, 'binary');
+});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
