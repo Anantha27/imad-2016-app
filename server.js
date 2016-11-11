@@ -9,6 +9,9 @@ var pg=require('pg');
 var Pool =require('pg').Pool;
 app.use(morgan('combined'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ 
+  extended: true
+}));
 
 var config = {
   user: 'anantha27', //env var: PGUSER
