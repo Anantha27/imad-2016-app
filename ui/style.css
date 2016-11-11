@@ -25,15 +25,15 @@ body {
       text-align: center;
       margin-top:20px;
 }
-.rightbody
+#rightbody
 {
     height:300px;
-    width: 300px;
+    width: 400px;
     float: right;
     margin: 0;
     
 }
-.leftbody
+#leftbody
 {	height:560px;
     width: 770px;
     float: left;
