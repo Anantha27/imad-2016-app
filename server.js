@@ -1,5 +1,4 @@
 var express = require('express');
-var fs=require('fs');
 var morgan = require('morgan');
 var path = require('path');
 var crypto=require('crypto');
@@ -10,7 +9,6 @@ var pg=require('pg');
 var Pool =require('pg').Pool;
 app.use(morgan('combined'));
 app.use(bodyParser.json());
-app.use(express.static(__dirname+'/ui'));
 
 var config = {
   user: 'anantha27', //env var: PGUSER
@@ -161,14 +159,14 @@ app.get('/article-three',function(req,res)
     res.send("Article three will be served here");
 });
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname,'/index.html'));
+  res.sendFile(path.join(__dirname,'ui','index.html'));
 });
 app.get('/ui/ak.gif', function (req, res) {
     res.sendFile(path.join(__dirname,'/ak.gif'))
 });
 
 app.get('/ui/style.css', function (req, res) {
-  res.sendFile(path.join(__dirname,'/style.css'));
+  res.sendFile(path.join(__dirname,'ui','style.css'));
 });
 app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname,'/main.js'));
