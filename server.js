@@ -16,10 +16,10 @@ var config = {
   host: 'db.imad.hasura-app.io', // Server hosting the postgres database
   port: 5432, //env var: PGPORT
 };
-app.use(session({
+/*app.use(session({
     secret:"Randomsecretvalue",
     cookie:{ maxAge:1000*60*60*24*30}
-}));
+}));*/
 function hash(input,salt)
 {
     var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
