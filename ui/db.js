@@ -1,12 +1,10 @@
 var express = require('express');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 var app = express();
-var json=require('JSON');
-var pg=require('pg')
-var connString="pg://anantha27:process.env.DB_PASSWORD@db.imad.hasura-app.io:5432/anantha27"
+var pg=require('pg');
+var connString="pg://anantha27:process.env.DB_PASSWORD@db.imad.hasura-app.io:5432/anantha27";
 //connString=connString.trim();
-console.log("connection sting::"+connString)
-app.use(express.static(__dirname + '/public'));
+console.log("connection sting::"+connString);
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 
@@ -14,22 +12,21 @@ app.use( bodyParser.json() );
  app.use(bodyParser.urlencoded({ 
   extended: true
 }));
-app.listen(8081);
 
 
 app.get('/', function (req, res) {
    res.render('loginpage.ejs');
-})
+});
 
 app.post('/login', function (req, res) {
-    console.log("userName::"+req.body.userName)
-    var userName=req.body.userName
+    console.log("userName::"+req.body.userName);
+    var userName=req.body.userName;
    	pg.connect(connString, function(err, client, done) {
-		console.log("Client for pg: "+client)
+		console.log("Client for pg: "+client);
 		if(err) {
 			return console.error('error fetching client from pool', err);
     		}
-    		query="select user_id,user_name from public.user where user_name='"+userName+"'";
+    		query="select id,username from user where username='"+userName+"'";
     		client.query(query, function(err, result) {
     		done(); //call done() to release the client back to the pool
     		 if(err) {
@@ -42,4 +39,3 @@ app.post('/login', function (req, res) {
     		});});
         });
 
-console.log("Server Listening on 8081")
