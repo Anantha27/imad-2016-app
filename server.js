@@ -10,6 +10,7 @@ var pg=require('pg');
 var Pool =require('pg').Pool;
 app.use(morgan('combined'));
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/ui'));
 
 var config = {
   user: 'anantha27', //env var: PGUSER
@@ -163,14 +164,14 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/ui/ak.gif', function (req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'ak.gif'))
+    res.sendFile(path.join(__dirname,'ak.gif'))
 });
 
 app.get('/ui/style.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+  res.sendFile(path.join(__dirname,'style.css'));
 });
 app.get('/ui/main.js', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'main.js'));
+  res.sendFile(path.join(__dirname,'main.js'));
 });
 
 var port=8080;
