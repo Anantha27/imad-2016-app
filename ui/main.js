@@ -23,11 +23,11 @@ submit.onclick=function()
         }
     };
 
-var username=document.getElementById('username').value;
-var password=document.getElementById('password').value;
+var userName=document.getElementById('username').value;
+var Password=document.getElementById('password').value;
 console.log(userName);
 console.log(Password);
 request.open("POST","http://anantha27.imad.hasura-app.io/login",true);
 request.setRequestHeader('Content-type','application/json');
-request.send(JSON.stringify({username: username,password: password}));
+request.send(JSON.stringify({userName: userName,Password: Password}));
 };
