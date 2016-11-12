@@ -8,7 +8,7 @@ $('#submit_btn').click=function()
     {if(requet.readyState===XMLHttpRequest.DONE)
         {
             if(request.status===200)
-            {   console.log('loggedin')
+            {   console.log('loggedin');
                 alert('Logged in successfully');
             }
             else if(request.status===403)
