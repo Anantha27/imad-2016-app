@@ -107,7 +107,7 @@ pool.query('INSERT INTO "user"(username,password) VALUES($1,$2)',[username,dbstr
 app.post('/login',function(req,res){
     var userName=req.body.username;
     var Password=req.body.password;
-    pool.query('SELECT * FROM "user" WHERE username=$1',[userName],function(err,result)
+    pool.query("SELECT * FROM "user" WHERE username='"+userName"'",function(err,result)
 {   if(err)
     {res.status(500).send(err.toString());
     }
@@ -122,6 +122,7 @@ app.post('/login',function(req,res){
         var dbString=result.rows[0].Password;
         var salt= dbString.split('$')[2];
         var hashedPassword=hash(Password,salt);
+        console.log(hashedPassword);
         if(hashedPassword===dbString)
         {
             req.session.auth={userId:result.rows[0].id};
