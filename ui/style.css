@@ -1,6 +1,6 @@
 body {
     margin-top: 10px;
-    background-image:url(bkg.jpg);
+    background-image:url(/bkg.jpg);
     background-size:cover;
 }
 #a {
