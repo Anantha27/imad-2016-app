@@ -6,12 +6,9 @@ var session=require('express-session');
 var app = express();
 var bodyParser=require('body-parser');
 var pg=require('pg');
-var Pool =pg.Pool;
+var Pool =require('pg').Pool;
 app.use(morgan('combined'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ 
-  extended: true
-}));
 
 var config = {
   user: 'anantha27', //env var: PGUSER
