@@ -116,7 +116,7 @@ app.post('/login',function(req,res){
     else
     {    if(result.rows.length===0)
         { // user does not exists
-            res.send(401).send('Username is invalid:');
+            res.send(403).send('Username is invalid:');
         }
         else
         {// match the passord
@@ -130,7 +130,7 @@ app.post('/login',function(req,res){
         }
         else
         {
-            res.send(413).send('Password is invalid');
+            res.send(403).send('Password is invalid');
         }
     }
         
