@@ -5,7 +5,6 @@ var crypto=require('crypto');
 var session=require('express-session');
 var app = express();
 var bodyParser=require('body-parser');
-var pg=require('pg');
 var Pool =require('pg').Pool;
 app.use(morgan('combined'));
 app.use(bodyParser.json());
@@ -49,7 +48,7 @@ var htmlTemplate=
 
   return htmlTemplate;  
 }
-var pool = new pg.Pool(config);
+var pool = new Pool(config);
 app.get('/articles/:articleName',function(req,res)
 {
     
