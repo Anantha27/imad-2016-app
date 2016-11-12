@@ -25,8 +25,8 @@ submit.onclick=function()
 
 var username=document.getElementById('username').value;
 var password=document.getElementById('password').value;
-console.log(username);
-console.log(password);
+console.log(userName);
+console.log(Password);
 request.open("POST","http://anantha27.imad.hasura-app.io/login",true);
 request.setRequestHeader('Content-type','application/json');
 request.send(JSON.stringify({username: username,password: password}));
