@@ -139,7 +139,7 @@ a {
 {	height:560px;
     width: 570px;
     float: left;
-    margin-left: 50px;
+    padding-left:50px;
 }
 .btn{
     background-color:blue;
