@@ -1,6 +1,7 @@
 body {
     margin-top: 10px;
-    background-color:white;
+    background-image:url(bkg.jpg);
+    background-size:cover;
 }
 #a {
 	max-height: 80px;
