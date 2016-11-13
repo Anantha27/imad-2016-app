@@ -6,7 +6,7 @@
         <link href="/ui/style.css" rel="stylesheet" />
          <link href="/ui/bootstrap.css" rel="stylesheet" />
          <title>
-              PROFILE
+              HOME
          </title>
 <meta name="viewport" content="width=device-width,intial scale=1"/>
  </head> 
@@ -14,13 +14,20 @@
          
            <div class="center">
         <img src="/ui/ak.gif" class="img-medium"/>
+         <a href="/ui/profile.html" button id="PROFILE" name="PROFILE" type="submit" class="btn btn-info">Profile</a>   
+               <a href="/ui/profile.html" button id="PROFILE" name="PROFILE" type="submit" class="btn btn-info">Go to blog</a> 
         </div>
     
         <div class="leftbody">
-    <input type="text" id="username" placeholder="Username"/> 
+           <u> SIGNUP</u>
+           <form action="/create-user" method="POST">
+            <input type="text" id="username" placeholder="Username"/> 
             <br>
             <input type="password" id="password" placeholder="Password"/> 
-            <br>
+              <br>
+            <input name="Signup" type="submit" id="signup" />  
+           <br>
+           </form> 
         </div>
         <div class="rightbody">
         <div class="center text-big bold">
