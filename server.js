@@ -119,7 +119,7 @@ app.post('/login',function(req,res){
         }
         else
         {// match the passord
-        var dbString=result.rows[0].Password;
+        var dbString=result.rows[0].password;
         var salt= dbString.split('$')[2];
         var hashedPassword=hash(Password,salt);
         console.log(hashedPassword);
